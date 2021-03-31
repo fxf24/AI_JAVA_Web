@@ -6,9 +6,48 @@
 </head>
 <body>
 <h1>입력(키보드, 마우스) 양식 태그</h1>
-<form action = "loginprocess? id=xxxxx"> <!-- 입력값 전송받을 파일 --> 
- <input type = "text" name = "id"><br>
- <input type = submit value = '로그인'>
+<form action = "입력값 전송받을 파일"> <!-- 입력값 전송받을 파일 --> 
+ 아이디입력: <input type="text" name="id"><br>
+ 암호입력: <input type="password" name="pw"><br>
+ 권한: <input type="hidden" name="role" value="admin"><br>
+ 성별: 
+ <input type="radio" name="gender" value="male"> 남자
+ <input type="radio" name="gender" value="female"> 여자
+수강과목: 
+<input type="checkbox" name="subject" value="java"> 자바
+<input type="checkbox" name="subject" value="oracle"> 오라클
+<input type="checkbox" name="subject" value="html"> html
+<input type="checkbox" name="subject" value="jsp"> jsp<br>
+사진 :
+<input type="image" name="myimage" src="images/google.png"><br>
+자기소개서파일:
+<input type="file" name="myfile"><br>
+html5
+<input type="color"><br>
+<input type="datetime-local"><br>
+<input type="number"><br>
+
+<textarea rows="5" cols="100"></textarea><br>
+<select multiple="multiple">
+	<optgroup label="중식">
+		<option>짜장면</option>
+		<option>짬뽕</option>
+	</optgroup>
+	<optgroup label="분식">
+		<option>라면</option>
+		<option>떡볶이</option>
+	</optgroup>
+	<optgroup label="기타">
+		<option>밥</option>
+		<option>안먹음</option>
+	</optgroup>
+
+</select>
+
+<input type=button value="javascript기능?"><br>
+<input type=reset value='입력취소'><br>
+<input type=submit value='로그인'>
 </form>
+<img alt="" src="images/google.png">
 </body>
 </html>
