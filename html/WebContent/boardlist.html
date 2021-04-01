@@ -3,11 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body {
+		background-color: aqua;
+	}
+
+	h1 {
+		border-style: solid;
+		border-color: blue;
+		border-radius: 10px;
+		
+		width: 400px;
+		text-align: center;
+		margin: auto;
+		
+		color: green;
+		text-shadow: 5px 5px 5px green;
+		box-shadow: -5px -5px 5px red;
+	}
+	
+	.align {
+		width: 300px;
+		margin: auto;
+		
+		text-align:center;
+	}
+	
+	th {
+		background-color: #999999;
+	}
+	
+</style>
 </head>
 <body>
 <h1>boardlist를 출력합니다.</h1>
 <form action="boardsearch.html">
-<select style="width:140px" multiple="multiple" size="2" draggable="false">
+<select >
 	<option>제목</option>
 	<option>내용</option>
 	<option>작성자</option>
@@ -16,8 +47,8 @@
 <input type="submit" value="검색">
 </form>
 <br>
-<div>
-	<table border="3">
+<div class='align'>
+	<table align="center" border="3">
 		<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th></tr>
 		<tr><td>1</td><td><a href="boarddetail.html">제목1</a></td><td>작성자1</td><td>0</td></tr>
 		<tr><td>2</td><td><a href="boarddetail.html">제목2</a></td><td>작성자2</td><td>0</td></tr>
@@ -27,11 +58,13 @@
 	</table>
 </div>
 
-<h5>페이지번호</h5>
-<a href="boardlist.html">1</a>
-<a href="boardlist.html">2</a>
-<a href="boardlist.html">3</a>
-<a href="boardlist.html">4</a>
-<a href="boardlist.html">5</a>
+<div class='align'>
+	<h3>페이지번호</h3>
+	<a href="boardlist.html">1</a>
+	<a href="boardlist.html">2</a>
+	<a href="boardlist.html">3</a>
+	<a href="boardlist.html">4</a>
+	<a href="boardlist.html">5</a>
+</div>
 </body>
 </html>

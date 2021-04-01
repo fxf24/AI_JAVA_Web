@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*  h1 {color: red;} h1 "태그 선택"*/
+	/* *{color: red;}  모든 태그 선택*/
+	/* #first {color:red;}  id first 인 태그 선택*/
+/* 	.redgroup {color:red;} class redgroup인 태그 선택*/
+	/* input[type=text] {color: red;} */
+	/* input[name] {color:red;} */
+	/* body a {color:red;} */
+	/* body > a {color:red;} */
+	/* 
+	자손 부모 > 자손
+	후손 --- 부모 후손
+	 */
+	/* h1:hover {color:blue;} h1 마우스 올린상태 - 활성화 */ 
+	/* h1:active {color:red;} h1 클릭했을 때 - 활성화 */ 
+	/* input[type=radio]:checked {color:red;}
+	option[selected] {color:red;} */
+	/*  option:nth-child(2n) {color:red;} */ 
+	/* h1 {display: none;} */
+	
+	#upper {
+	background-color:#55ff77; /* 16진수 #00(red)00(green)00(blue) */
+	width:300px;
+	height:100px;
+	font-size: 2em;
+	border-style: dashed;
+	border-width: 20px;
+	border-color: aqua;
+	border-radius: 60px;
+	
+	margin:20px;
+	padding:50px;
+	}
+	
+	#lower div
+	{display: inline;}
+	
+	body {
+	background-image: url('/html/images/google.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100px;	
+	
+	}
+	
+	#first {
+		font-size:20px;
+		font-family:'궁서체';
+		font-style: italic;
+		text-decoration:underline;
+	}
+	
+	a {
+		color:#000000;
+		text-decoration: none;
+	}
+	
+	a:hover { color: blue;}
+	
+	#align {
+		background-color: #eeeeee;
+		width:400px;
+		text-align: center;
+		margin:auto; /* 브라우저 알아서 정렬 */
+		
+		text-shadow: 2px 2px 2px red;
+		box-shadow: 5px 5px 5px red;
+	}
+	
+	.redgroup {
+	width:100px; 
+	text-overflow:ellipsis;}
+	
+</style>
+
+</head>
+<body>
+<div id=upper>div 태그 영역입니다.</div>
+<h1 >첫번째 제목</h1>
+<p id="first"> p 태그는 하나의 문단을 표현합니다. abcdefghij</p>
+<div id="align">테스트중입니다.</div>
+<a class="redgroup" href="/html/first.html"> 이동 </a>
+<h1><a class="redgroup" href="/html/first.html"> 이동 </a></h1>
+<p class="redgroup"> p 태그는 하나의 문단을 표현합니다. 두번째 문단입니다.</p>
+아이디입력: <input type=text name="id" value=아이디입력칸>
+암호입력: <input type=password value=none>
+이름입력: <input type=text value=이름입력칸><br>
+성별 <input type=radio name=gen value=남 checked=checked> 남자
+<input type=radio name=gen value=여> 여자
+<br>
+<select>
+<option>첫번째</option>
+<option selected=selected>두번째</option>
+<option>세번째</option>
+<option>네번째</option>
+<option>다섯번째</option>
+<option>여섯번째</option>
+</select>
+
+
+<div id=lower>
+<div>아래쪽 div1</div>
+<div>아래쪽 div2</div>
+<div>아래쪽 div3</div>
+</div>
+</body>
+</html>
