@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.box {
+		display:inline-block;
+		width: 100px;
+		height: 100px;
+		background: red;
+		color: white;
+		float: right;
+	}
+	
+	p {
+		clear:"both";
+		text-shadow: none;
+		
+		/* 그림자 만들 원본으로부터 떨어진 x좌표(양수: 오른쪽, 음수: 왼쪽) 
+		그림자 만들 원본으로부터 떨어진 y좌표(양수: 아래쪽, 음수: 위쪽)
+		음영퍼지는크기 px 색상
+		*/
+	}
+</style>
+
+</head>
+<body>
+
+<div class="box" id="one">One</div>
+<div class="box" id="two">Two</div>
+<div class="box" id="three">Three</div>
+<div class="box" id="four">Four</div>
+
+<p>단락입니다.</p>
+</body>
+</html>
