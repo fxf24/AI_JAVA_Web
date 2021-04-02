@@ -59,6 +59,16 @@ var avgf = student.calcAvgFloat();
 var avg = student.calcAvg();
 document.write("평균(실수):" + student.calcAvgFloat() + "<br>");
 document.write("평균(정수):" + student.calcAvg() + "<br>");
+
+//자바스크립트객체(+약간 규칙 강제적부여)--json변환 함수 -- 다른 프로그램으로 전달하려고
+var json_student = JSON.stringify(student);
+document.write(json_student+"<br>");
+
+//다른 프로그램이 자바스크립트로 json전덜받아서 해석 원래 자바스크립트 객체로 사용하려고
+var origin_student = JSON.parse(json_student);
+document.write(origin_student.name+"<br>");
+document.write(origin_student.kor+"<br>");
+
 </script>
 </body>
 </html>
