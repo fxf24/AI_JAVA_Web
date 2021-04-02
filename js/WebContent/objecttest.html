@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var product = {
+	code : 100,
+	name : '멀티컴퓨터',
+	price : 1000000,
+	detail : '자세한 상품 정보',
+	images : ['pr1.jpg','pr2.jpg','pr3.jpg'],
+	
+	calcPrice : function(sale){
+		this.price = this.price * (1-sale);
+		return this.price;
+	}
+};
+
+document.write(product.code + "<br>");
+document.write(product['code'] + "<br>");
+document.write(product.images.join(" | ") + "<br>");
+document.write("원가: " + product.price + "<br>");
+var saleprice = product.calcPrice(0.2);
+document.write("세일후: " + saleprice + "<br>");
+//java script는 ;해도 안해도 상관없다.
+document.write(typeof product + "<br>")
+//number string boolean function object
+</script>
+</body>
+</html>

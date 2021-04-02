@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+//선언적 함수 - 모든 자바스크립트 코드 실행 전 메모리 로드
+//익명 함수 - 스크립트 코드 실행하면서 변수 선언 시작하면 로드
+var f1 = function(){
+	alert('C')
+	//return 10;
+}
+
+function f1(){
+	alert("A")
+}
+
+function f1(){
+	alert("B")
+}
+
+//f1();//f1 함수 실행
+//alert(f1); //f1 함수 코드내용 출력
+//alert(f1())
+
+//callback 함수
+function manytimes(f, n){
+	for(var i = 1; i <= n; i++){
+		f("자바스크립트");
+	}
+}
+
+function tentimes(f){
+	for(var i = 1; i <= 10; i++){
+		f("자바스크립트");
+	}	
+}
+
+function print(message){
+	document.write("<h1>" + message + "</h1>");
+}
+
+//print("자바스크립트");
+//tentimes(print);
+manytimes(print, 5);
+
+//전역변수/지역변수
+var a = "전역";
+function vartest(){
+	var a = "지역";
+	document.write("<h1>" + this.a + "</h1>")
+	var a = "변경";
+}
+
+function vartest2(){
+	var a = "지역2";
+	document.write("<h1>" + this.a + "</h1>")
+}
+vartest();
+document.write("<h1>" + a + "</h1>")
+</script>
+</body>
+</html>

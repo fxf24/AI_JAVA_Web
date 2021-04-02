@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//1. promt 창에서 입력한다.
+//학생이름(공백) 국어(공백)영어(공백)수학(공백)
+//2. 입력한 정보를 분리한다.
+//3. 총점, 평균(실수), 평균(정수) 계산한다.
+//4. 점수평균에 따라서 등급 90-A 80-B 70-C 60-D else F
+//5. 출력한다. ==> student
+
+var student = {
+	name : "",
+	kor : 0,
+	eng : 0,
+	mat : 0,
+	
+	calcTotal : function(){
+		var total = this.kor + this.eng + this.mat;
+		return total;
+	},
+	
+	calcAvgFloat : function(){
+		var avgf = (this.kor + this.eng + this.mat)/3.0;
+		return avgf
+	},
+	calcAvg : function(){
+		var avg = parseInt((this.kor + this.eng + this.mat)/3);
+		return avg
+	}
+};
+
+var prom = prompt("학생이름(공백)국어(공백)영어(공백)수학(공백)");
+var list = prom.split(" ");
+student.name = list[0];
+student.kor = parseInt(list[1]);
+student.eng = parseInt(list[2]);
+student.mat = parseInt(list[3]);
+
+var total = student.calcTotal();
+if(total>=90){
+	document.write("총점:" + total + ": A<br>");
+}else if(total>=80){
+	document.write("총점:" + total + ": B<br>");
+}else if(total>=70){
+	document.write("총점:" + total + ": C<br>");
+}else if(total>=60){
+	document.write("총점:" + total + ": D<br>");
+}else{
+	document.write("총점:" + total + ": F<br>");
+}
+
+var avgf = student.calcAvgFloat();
+var avg = student.calcAvg();
+document.write("평균(실수):" + student.calcAvgFloat() + "<br>");
+document.write("평균(정수):" + student.calcAvg() + "<br>");
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	h1 {color:red;}
+</style>
+<script type="text/javascript">
+//alert("클릭");
+document.write("브라우저 출력1<br>");
+console.log("콘솔출력");
+
+document.write(10/3+ "<br>");
+document.write(parseInt(10/3)+ "<br>");
+document.write(typeof(10/3)+ "<br>");
+var a = 10;
+var b = 10.0;
+var c = "10.0";
+
+document.write((a == b) + "<br>");
+document.write((a == c) + "<br>");
+document.write((a === b) + "<br>");
+document.write((a === c) + "<br>");//false
+
+var d;//변수 선언. 메모리 영역 확보. 값 할당 이전(타입 모른다)
+d = true;
+document.write(typeof d + "<br>");//boolean
+d = "script";
+document.write(typeof d + "<br>");//string
+d = 10;
+document.write(typeof d + "<br>");//number
+
+var e = 3.14;
+var e = "파이값";//변수 선언 중복 - 실수로 문자열타입 변경
+
+//javascript 언어 = ECMASCRIPT6 표준
+let f = 3.14;
+f = "파이값";//변수 할당 변경
+
+const h = 100;
+
+</script>
+
+</head>
+<body>
+<script>
+// document.write("브라우저 출력2");
+
+</script>
+
+<!-- <h1>html</h1> -->
+</body>
+</html>
