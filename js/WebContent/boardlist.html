@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () =>{
+	var i = 1;
+	document.querySelector("#f").onsubmit = (e)=>{
+		e.preventDefault();
+		//document.querySelector("input[type=text]").value
+		var search = document.querySelector("#search").value
+		var select =  document.querySelector("select")
+		let idx = select.selectedIndex
+		let selected = select[idx].innerHTML
+		
+		document.querySelector("#list").innerHTML += 
+			"<tr><td>"+ i++ +"행 1열 "+ selected +"이/가 " + search + "인 형태를 검색하셨습니다.</tr></td>"
+	}
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<h1>boardlist를 출력합니다.</h1>
+<form id="f" action="boardsearch.html">
+<select >
+	<option>제목</option>
+	<option>내용</option>
+	<option>작성자</option>
+</select>
+검색어입력:<input id="search" type="text">
+<input type="submit" value="검색">
+</form>
+
+<table id="list">
+<!-- 
+<tr><td>1행 1열 제목이 자바인 형태를 검색하셨습니다.</tr></td>
+2행 1열 내용이 오라클인 형태를 검색하셨습니다.
+ -->
+ 
+</table>
+
+</body>
+</html>

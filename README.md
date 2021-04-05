@@ -32,5 +32,10 @@
     * 가상 요소를 포함하지 않습니다.
     * 보이지 않는 요소를 포함합니다.
   * [dom1](./js/WebContent/dom1.html), [dom2](./js/WebContent/dom2.html)
-  * [event](./js/WebContent/event.html), [event2](./js/WebContent/event2.html)
-  * [arrowfunction](./js/WebContent/arrowfunc.html)
+  * [event](./js/WebContent/event.html), [event2](./js/WebContent/event2.html) 이벤트 설정
+  * [arrowfunction](./js/WebContent/arrowfunc.html)  익명, 화살표 함수
+* [게시판 검색](./js/WebContent/boardlist.html) - 검색하면 테이블에 검색한 데이터가 보여지도록 java script 코딩
+
+## jquery
+
+* jquery에 대해 알아보자

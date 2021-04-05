@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	/* document.getElementsByTagName("h1")
+	document.getElementsByClassName("b")
+	document.getElementById("a")
+	document.querySelector(".b")
+	document.querySelector("#b")
+	document.querySelector("h1")
+	document.querySelectorAll(".b")
+	document.querySelectorAll("#b")
+	document.querySelectorAll("h1") */
+	$('h1').css("color", "red")
+	/*
+	h1#a
+	h1.b
+	input[type=password]:first
+	input[type=radio]:checked
+	input[type=checkbox]:checked
+	input:checked
+	select option[selected]
+	h1 > a
+	h1 , a
+	*/
+	/* $('img').attr("src", '/html/images/google.png')
+	$('img').attr("width", '100')
+	$('img').attr("height", '100')
+	 */
+	
+	$('img').attr("src", '/html/images/google.png')
+	$('img').attr("width", function(index){
+		return (index+1)*100
+	})
+	
+	alert('img').attr('src')
+	alert($('.b').css('color'))
+	
+})
+</script>
+</head>
+<body>
+<h1 id="a" class="b"> 클릭하세요</h1>
+<img><br>
+<img><br>
+</body>
+</html>

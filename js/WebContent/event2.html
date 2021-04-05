@@ -25,11 +25,11 @@ window.onload = function(){
 	}
 	
 	//mouse 이동시마다 색상. 표준 이벤트 모델
-	document.querySelector("#mousetest").addEventListener("mouseover",function(){
+	document.querySelector("#mousetest").addEventListener("mouseover",()=>{
 		document.querySelector("#mousetest").style.backgroundColor = "green"	
 	})
 	
-	document.querySelector("#mousetest").addEventListener("mouseout",function(){
+	document.querySelector("#mousetest").addEventListener("mouseout",()=>{
 		document.querySelector("#mousetest").style.backgroundColor = "red"	
 	})
 }
