@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(e){
+	//클릭버튼2라는 value를 가진 태그를 읽어와서 작동
+	var click1 = document.getElementById("click1")
+	click1.onclick = function(ev){//event : [object MouseEvent]
+		alert(ev.target.tagName);
+		click1.value="수정";
+	}
+}
+
+//a();
+</script>
+</head>
+<body>
+<form action="a.jsp">
+	<input type=text value="입력하세요"><br>
+	<input type=submit value="전송"><br> <!-- 버튼형태, 클릭동작. action파일로이동 -->
+	<input type=reset value="지움"><br><!-- 버튼현태. 클릭동작. 입력내용 초기화 -->
+	<input type=button value="클릭버튼" onclick="alert('클릭')"><br>
+	<input id="click1" type=button value="클릭버튼2"><br>
+	<button><img src=""><b>클릭버튼3</b> </button>
+	<!-- 버튼형태 -->
+	
+</form>
+</body>
+</html>

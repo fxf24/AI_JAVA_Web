@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//dom 방법 2 : window창에 문서 로딩 완료되면 함수 실행
+window.onload = function(){alert(document.getElementById("first").innerHTML)}
+
+//dom 방법 3 : 의도적 시간 지연
+setTimeout(function(){
+	//alert(document.getElementById("first").innerHTML)
+	//document.getElementById("first").style.color="red"
+	/* var h1_list = document.getElementsByTagName("h1")
+	h1_list[0].style.color="blue"
+	h1_list[1].style.color="green"	 */
+	
+	var pink_list = document.getElementsByClassName("pink")
+	alert(pink_list.length)
+	for(var i = 0; i < pink_list.length; i++){
+		pink_list[i].style.color = "pink"
+	}
+	
+	document.querySelector("#first")
+	document.querySelectorAll(".pink")
+	document.querySelectorAll("h1")
+}, 3000);
+</script>
+</head>
+<body>
+<h1 id="first" class='pink'> 제목 </h1>
+<p class="pink"> 내용을 나타내는 문단입니다.</p>
+<h1 id='second'> 제목 </h1>
+
+<!--dom 방법 1 : 태그 출력 이후 접근 방법
+<script type="text/javascript">
+alert(document.getElementById("first").innerHTML)
+</script> -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	document.querySelector("h1").innerHTML = "제목수정";
+	document.querySelectorAll("div")[1].innerHTML += "<h3>수정</h3>";
+	document.querySelectorAll("div")[1].textContent += "<h3 style='color:red'>수정</h3>";
+	document.querySelectorAll("div")[2].style.color="blue";
+	document.querySelectorAll("div")[2].style.backgroundColor = "yellow";		
+
+	for(var i = 1; i<=10; i++){
+		document.body.innerHTML += "<div> " + i + "번째 생성</div>";
+	}
+	
+	var div_list = document.querySelectorAll("div");
+	for(var i = 0; i < div_list.length; i++){
+		div_list[i].style.backgroundColor="#00" + (i+1)*5 + "00";
+	} 
+	
+	//document.getElementsTagName("img")[0]
+	//document.querySelectorAll("img")[0]
+	var img_tag = document.querySelector("img");
+	img_tag.src="/html/images/google.png";
+	img_tag.width = 100;
+	img_tag.height = 100;
+	img_tag.setAttribute("user-define","이미지보여줄께요")
+	alert(img_tag.getAttribute("user-define"))
+}
+</script>
+</head>
+<body>
+<h1>제목</h1>
+<div>추가합니다.</div>
+<div>추가합니다2.</div>
+<div>추가합니다3.</div>
+<img  src="">
+<!-- 
+3. 버튼클릭 - 사용자입력(키보드나 마우스로) - 키보드 이벤트 발생한다, 마우스클릭 이벤트
+
+1. 화면 로딩 종료 직후 - dom 실행
+2. setTimeout 지정 시간 경과 직후 - dom 실행
+
+ -->
+</body>
+</html>

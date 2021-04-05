@@ -22,3 +22,15 @@
 
 * [입력](./js/WebContent/input.html) 연습
 * 전체적인 통합 실습 [student](./js/WebContent/student.html)
+
+* dom 실습
+  * DOM(Document Object Model)은 HTML문서에 대한 인터페이스입니다. 
+    * 뷰포트에 무엇을 렌더링 할지 결정하기 위해 사용
+    * 페이지의 콘텐츠 및 구조, 그리고 스타일이 자바스크립트 프로그램에 의해 수정되기 위해 사용
+    * 항상 유효한 HTML형식입니다.
+    * 자바스크립트에 수정될 수있는 동적 모델이어야합니다.
+    * 가상 요소를 포함하지 않습니다.
+    * 보이지 않는 요소를 포함합니다.
+  * [dom1](./js/WebContent/dom1.html), [dom2](./js/WebContent/dom2.html)
+  * [event](./js/WebContent/event.html), [event2](./js/WebContent/event2.html)
+  * [arrowfunction](./js/WebContent/arrowfunc.html)
