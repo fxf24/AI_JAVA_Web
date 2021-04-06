@@ -12,12 +12,36 @@ window.onload = ()=>{
 <script src='jquery-3.2.1.min.js'></script>
 <script>
 $(document).ready(function(){
-	$('div').html('내용 추가 수정')
-	alert($('div').html())
+/* 	$('div').html($('div').html() + '내용 추가 수정') //div텍스트 setter-html()
+	alert($('div').html()) //div텍스트 getter-html()
+	 */
+	/* $('div').text($('div').text() + '<h1> 내용 추가 수정 </h1>')//div텍스트 setter-html()
+	alert($('div').text())//div텍스트getter-html()
+	 */
+	var value = $('input[type=text]').val()
+	//css 선택자 조건 태그 2개 이상 = 첫번째
+	var value2 = $('input[type=checkbox]:checked').val()
+	
+	/* var value3 = $('input[type=checkbox]')
+	$('#here').html(value3[0].value + ':'+ value3[1].value);
+	 */
+	
+	//선택한 태그만큼 반복 value 값
+	var value3 = $('input[type=checkbox]').val(function(){
+		//$('#here').html($('#here').html() + ':' + $(this).val())
+		$('#here').append(':' + $(this).val())
+	}) 
+	
+	
 })
 </script>
 </head>
 <body>
-<div>div 태그의 innerhtml 영역입니다.</div>
+<div id="">div 태그의 innerhtml 영역입니다.</div>
+<input type=text value="입력값입니다.">
+<input type=password>
+<input type=checkbox value='choice1'> 선택1
+<input type=checkbox value='choice2' checked='checked'> 선택2
+<div id='here'>여기에 결과 보입니다.</div>
 </body>
 </html>

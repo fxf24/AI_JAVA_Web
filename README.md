@@ -39,3 +39,10 @@
 ## jquery
 
 * jquery에 대해 알아보자
+
+* [class](./jquery/WebContent/class.html) - jquery를 이용해 class 추가
+* [event](./jquery/WebContent/event.html) - jquery로 할수 있는 event
+* [select event](./jquery/WebContent/selectevent.html) - select event 실습
+* [text](./jquery/WebContent/text_html.html) - 텍스트 관련 jquery
+* [textarea](./jquery/WebContent/textarea.html) - keyup이벤트 및 시각효과
+* [bubbling](./jquery/WebContent/bubbling.html) - 중복이벤트 처리가 되는경우 자식태그의 이벤트가 먼저 실행되고 부모가 실행이 된다

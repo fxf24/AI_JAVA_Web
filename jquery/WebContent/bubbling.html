@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-3.2.1.min.js'></script>
+<script>
+$(document).ready(function(){
+	$('h1').on('click', function(){
+		//alert(1)
+		$(this).css("background-color", "red")
+	})
+	
+	$('div').on('click', function(e){
+		//alert(2)
+		$(this).css("background-color", "yellow")
+		$(this).css("width", "200px")
+		e.stopPropagation();
+	})
+	
+	$('a').on('click', function(e){
+		e.preventDefault() //이동하는 동작 하지마
+		e.stopPropagation() //부모태그 이벤트 전파=버블링하지마.
+	})
+})
+</script>
+</head>
+<body>
+<h1> <a href="a.html" target="_blank">이동</a></h1>
+<!-- <h1> <div> 클릭합니다.</div></h1> -->
+</body>
+</html>

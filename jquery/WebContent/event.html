@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-3.2.1.min.js'></script>
+<script>
+$(document).ready(function(){
+	$('h1').click(function(){
+		//$('h1').css('border', 'solid 3px aqua')
+		$(this).css('border', 'solid 3px aqua')
+	})
+	
+	$('#first').on('mouseover',function(){
+		//$('h1').css('border', 'solid 3px aqua')
+		$(this).css('background-color', 'blue')
+	})
+	$('#first').on('mouseout',function(){
+		$(this).css('background-color', 'orange')
+	})
+	
+	$('#stop').on('click',function(){
+		$('h1').off('click')
+	})
+	
+	$('a').on('click',function(ev){
+		ev.preventDefault()
+		$(this).css('text-decoration', 'none')
+		$(this).css('color', 'green')
+		
+	})
+	
+	$('#btn_new').on('click', function(){
+		$('#result').append("<button id='after1'>추가버튼</button>")
+	})
+	
+	//동적 추가 버튼 클릭시
+	$('#result').on('click','#after1', function(){
+		alert('추가버튼 클릭')
+	})
+})//ready end
+</script>
+</head>
+<body>
+<h1> 클릭하세요 </h1>
+<h1> 클릭하세요2 </h1>
+<div id='first'> 마우스 올려보세요</div>
+<button id='stop'>동작 그만</button>
+<button id='one'>1번만 동작</button>
+
+<a href='http://www.daum.net'> 다음으로 이동 </a>
+
+<button id='btn_new'>버튼생성</button>
+<div id='result'></div>
+</body>
+</html>

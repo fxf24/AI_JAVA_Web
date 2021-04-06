@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+var drink_list = [2500, 3000, 4000, 3500, 3000];
+var drink_name_list = ['아메리카노','카페라떼','카푸치노','우유','코코아']
+var desert_list = [4500, 3000, 7000, 6000];
+var desert_name_list = ['스콘','베이글','샌드위치','치즈케잌']
+$(document).ready(function(){
+	$('form').on('submit', function(e){
+		e.preventDefault();
+		var drink_name = $('input[type=checkbox]:checked').val();
+		var drink_amount = $("input[type=text]:first").val();
+		for(var i = 0; i < drink_name_list.length; i++){
+			if(drink_name == drink_name_list[i]){
+				var totalprice = drink_list[i] * drink_amount
+			}
+		}
+		
+		var desert_name = $('select option[selected]').val()
+		var desert_amount = $('input[type=text]:last').val()
+		for(var i = 0; i < desert_name_list.length; i++){
+			if(desert_name == desert_name_list[i]){
+				totalprice += desert_list[i] * desert_amount
+			}
+		}
+		
+		$('#order').append(drink_name + ' - ' + drink_amount + "<br>")
+		$('#order').append(desert_name + ' - ' + desert_amount + "<br>")
+		$('#order').append(totalprice + "<br>")
+		
+	})
+	
+	$('input[type=text]').on('keyup', function(ev){
+		//키보드입력키값 코드값 알아올 수 있다. event
+		if(ev.keyCode > 57 || ev.keyCode < 48){
+			$('#order').html('<h1>숫자만 입력 가능합니다.</h1>')
+		}
+	})
+})
+</script>
+</head>
+<body>
+<h1>음료 선택하세요</h1>
+<form action='order.jsp'>
+음료:
+	<input type=checkbox value="아메리카노">아메리카노<br>
+	<input type=checkbox value="카페라떼">카페라떼<br>
+	<input type=checkbox value="카푸치노">카푸치노<br>
+	<input type=checkbox value="우유">우유<br>
+	<input type=checkbox value="코코아">코코아<br>
+수량:<input id='' type=text><!-- html5 이후 추가 --><br>
+
+디저트:	<select>
+		<option> 스콘 </option>
+		<option> 베이글 </option>
+		<option selected="selected"> 샌드위치 </option>
+		<option> 치즈케잌 </option>
+	
+	</select>
+수량:<input id='' type=text><br>
+	
+<input type=submit value='주문완료'><br>	
+</form>
+
+<div id='order'>
+
+</div>
+</body>
+</html>
