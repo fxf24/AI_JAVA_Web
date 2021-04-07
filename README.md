@@ -46,3 +46,9 @@
 * [text](./jquery/WebContent/text_html.html) - 텍스트 관련 jquery
 * [textarea](./jquery/WebContent/textarea.html) - keyup이벤트 및 시각효과
 * [bubbling](./jquery/WebContent/bubbling.html) - 중복이벤트 처리가 되는경우 자식태그의 이벤트가 먼저 실행되고 부모가 실행이 된다
+
+# Web Application
+
+## Servlet
+
+* 자바 서블렛을 이용하여 서버를 만들고 브라우저와 통신한다.
