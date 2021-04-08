@@ -12,32 +12,19 @@ public class BoardDAO {
 	Connection conn = null;
 	ResultSet rs = null;
 	
-	void insertBoard(BoardDTO dto) {
-		//매개변수 전달 dto 
-		//번호 - 시퀀스 값 자동 1 증가(입력x)
-		//작성시간 - 기본 sysdate 자동
-		//조회수 0 자동(입력x)
-		//insert sql 작성
-		//Driver 로딩
-		//con 생성
-		//pt나 st생성
-		// 실행
-		//close
-		//try-catch-finally
+	int insertBoard(BoardDTO dto) {
+		int num = 0;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "jdbc");
-			String sql = 
-//					"insert into board values(boardnum.nextval, ?, ?, ?, sysdate, ?, 0)";
-					"insert into board values(select max(seq)+1 from board, ?, ?, ?, sysdate, ?, 0)";
+			String sql = "insert into board values( (select max(seq)+1 from board), ?, ?, ?, sysdate, ?, 0)";
 			pt = conn.prepareStatement(sql);
 			pt.setString(1, dto.getTitle());
 			pt.setString(2, dto.getContents());
 			pt.setString(3, dto.getWriter());
 			pt.setInt(4, dto.getPassword());
 			
-			pt.executeUpdate();
-			
+			num = pt.executeUpdate();
 		} 
 		catch(ClassNotFoundException e) {
 			System.out.println("드라이버 세팅 확인하세요");
@@ -55,7 +42,7 @@ public class BoardDAO {
 				
 			}
 		}
-		
+		return num;
 	}
 	
 	ArrayList<BoardDTO> getBoardList(){
@@ -63,7 +50,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "jdbc");
-			String sql = "select * from board";
+			String sql = "select * from board order by time desc";
 			pt = conn.prepareStatement(sql);
 			rs = pt.executeQuery();
 			
@@ -151,5 +138,91 @@ public class BoardDAO {
 		}
 		
 		return list;
+	}
+	
+	public int getBoardCount() {
+		int cnt = 0;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "jdbc");
+			String sql = "select count(*) from board";
+			
+			pt = conn.prepareStatement(sql);
+			rs = pt.executeQuery();
+			
+			while(rs.next()) {
+				cnt = rs.getInt("count(*)");
+			}
+			
+		} 
+		catch(ClassNotFoundException e) {
+			System.out.println("드라이버 세팅 확인하세요");
+		}
+		catch(SQLException e) {
+			System.out.println("DB연결정보 확인하세요");
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				rs.close();
+				pt.close();
+				conn.close();
+			}
+			catch(SQLException e) {
+				
+			}
+		}
+		
+		return cnt;
+	}
+	
+	BoardDTO getDetailBoardList(int seq){
+		BoardDTO bdto = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "jdbc");
+			String sql = "update board set viewcount = viewcount +1 where seq= ?";
+			pt = conn.prepareStatement(sql);
+			pt.setInt(1, seq);
+			pt.executeUpdate();
+			
+			sql = "select * from board where seq=?";
+			pt = conn.prepareStatement(sql);
+			pt.setInt(1, seq);
+			rs = pt.executeQuery();
+			
+			while(rs.next()) {
+				int sequ = rs.getInt("seq");
+				int password = rs.getInt("password");
+				int viewcount = rs.getInt("viewcount");
+				String title = rs.getString("title");
+				String contents = rs.getString("contents");
+				String writer = rs.getString("writer");
+				String time = rs.getString("time");
+				
+				bdto = new BoardDTO(sequ, password, viewcount, title, contents, writer, time);
+			}
+			
+			
+		} 
+		catch(ClassNotFoundException e) {
+			System.out.println("드라이버 세팅 확인하세요");
+		}
+		catch(SQLException e) {
+			System.out.println("DB연결정보 확인하세요");
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				rs.close();
+				pt.close();
+				conn.close();
+			}
+			catch(SQLException e) {
+				
+			}
+		}
+		
+		return bdto;
 	}
 }

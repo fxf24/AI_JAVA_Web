@@ -52,3 +52,4 @@
 ## Servlet
 
 * 자바 서블렛을 이용하여 서버를 만들고 브라우저와 통신한다.
+* [Servlet](./servlettest/src/servlettest/TestServlet.java) 의 기초
