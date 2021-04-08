@@ -45,7 +45,7 @@ public class BoardDAO {
 		return num;
 	}
 	
-	ArrayList<BoardDTO> getBoardList(){
+	public ArrayList<BoardDTO> getBoardList(){
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -89,7 +89,7 @@ public class BoardDAO {
 		return list;
 	}
 	
-	ArrayList<BoardDTO> getBoardList(int pagenum, int cntPerPage){
+	public ArrayList<BoardDTO> getBoardList(int pagenum, int cntPerPage){
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -224,5 +224,41 @@ public class BoardDAO {
 		}
 		
 		return bdto;
+	}
+	
+	boolean getMember(String writer){
+		boolean result = false;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "jdbc");
+			String sql = "select id from member where id=?";
+
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, writer);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+		} 
+		catch(ClassNotFoundException e) {
+			System.out.println("드라이버 세팅 확인하세요");
+		}
+		catch(SQLException e) {
+			System.out.println("DB연결정보 확인하세요");
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				rs.close();
+				pt.close();
+				conn.close();
+			}
+			catch(SQLException e) {
+				
+			}
+		}
+		
+		return result;
 	}
 }

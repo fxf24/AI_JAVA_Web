@@ -20,22 +20,22 @@ public class BoardWrite extends HttpServlet {
 		String writer = request.getParameter("id");
 		String password = request.getParameter("pw");
 		
-		
 		BoardDAO dao = new BoardDAO();
 		BoardDTO dto = new BoardDTO();
-		dto.setTitle(title);
-		dto.setContents(content);
-		dto.setWriter(writer);
-		dto.setPassword(Integer.parseInt(password));
+		boolean memberresult = dao.getMember(writer);
 		
-		int flag = dao.insertBoard(dto);
 		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String result = "";
 		
-		if(flag >=1) {
-//			result += title + content + writer + password;
+		if(memberresult) {
+			dto.setTitle(title);
+			dto.setContents(content);
+			dto.setWriter(writer);
+			dto.setPassword(Integer.parseInt(password));
+			dao.insertBoard(dto);
+			
 			result += "<h3>저장되었습니다.</h3>";
 			result += "<a href='boardlist'>보드로 이동</a>";
 		}
@@ -43,6 +43,7 @@ public class BoardWrite extends HttpServlet {
 			result += "<h3>저장에 실패했습니다. 작성자를 다시 확인해주세요</h3>";
 			result += "<a href='boardlist'>보드로 이동</a>";
 		}
+		
 
 		out.println(result);
 		

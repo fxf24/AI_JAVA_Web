@@ -53,3 +53,9 @@
 
 * 자바 서블렛을 이용하여 서버를 만들고 브라우저와 통신한다.
 * [Servlet](./servlettest/src/servlettest/TestServlet.java) 의 기초
+* [lifecycleServlet](./servlettest/src/servlettest/LifeCycleServlet.java) Servlet의 실행주기를 알아볼 수 있는 파일
+* [gugudan](./servlettest/src/servlettest/GugudanServlet.java) servlet을 이용해 html에서 입력을 받아 구구단을 보여주는 실습
+* RequestDipatcher를 이용한 forward
+  * [forward1](./servlettest/src/forward/Forward1Servlet.java) 데이터를 forward하는 서블릿
+  * [forward2](./servlettest/src/forward/Forward2Servlet.java) 데이터를 전달 받는 서블릿
+* 
