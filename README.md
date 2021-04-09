@@ -58,4 +58,11 @@
 * RequestDipatcher를 이용한 forward
   * [forward1](./servlettest/src/forward/Forward1Servlet.java) 데이터를 forward하는 서블릿
   * [forward2](./servlettest/src/forward/Forward2Servlet.java) 데이터를 전달 받는 서블릿
-* 
+* context를 [생성](./servlettest/src/context/ContextServlet1.java) 하고 [전달](./servlettest/src/context/ContextServlet2.java) 받는 방법
+* cookie를 [생성](./servlettest/src/cookie/CookieServlet1.java) 하고 [전달](./servlettest/src/cookie/CookieServlet2.java) 받는 방법
+* Initparameter를 [설정](./servlettest/src/config/InitParameterServlet.java) 하는방법
+* Session
+  * 기본적인 Session을 [생성](./servlettest/src/session/SessionServlet1.java) 하고 [전달](./servlettest/src/session/SessionServlet2.java) 받는 방법
+  * MemerDTO를 Session으로 [생성](./servlettest/src/session/SessionServlet3.java) 하고 [전달](./servlettest/src/session/SessionServlet4.java) 받는 방법
+  * Session 값을 [삭제](./servlettest/src/session/SessionServlet5.java) 하는 방법
+

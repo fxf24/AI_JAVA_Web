@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/boardlist")
 public class BoardListServlet extends HttpServlet {
@@ -44,17 +45,27 @@ public class BoardListServlet extends HttpServlet {
 		int totalcnt = dao.getBoardCount();
 		int pagecnt = totalcnt / 5;
 		if(totalcnt % 5 != 0) {pagecnt = pagecnt +1;}
-		int j = 1;
 		for(int i = 1; i <= pagecnt; i++) {
-			result += "<a href='boardlist?page=" + j + "'>" + i + "</a>&nbsp";
-			j+=5;
+			result += "<a href='boardlist?page=" + i + "'>" + i + "</a>&nbsp";
 		}
 		
 		result += "<br><button id='write'> 글쓰기 </button>";
 		result += "<script>document.getElementById('write').onclick = function(){"
 				+ " location.href='boardwrite.html'"
-				+ "}</script>";
+				+ "}</script><br>";
+		
+		//작성자 xxx(세션에서 가져와서) 글쓰기를 완료했습니다 출력
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("writer");
+		BoardDTO dto = (BoardDTO)session.getAttribute("board");
+		if(id!= null && dto != null) {
+			result += "<h3>작성자" + id + "글쓰기를 완료했습니다</h3>";
+			result += "<h3>글 쓴 내용은 다음과 같습니다.</h3>";
+			result += dto.toString();
+		}
 		out.println(result);
+		session.invalidate();
 	}
 
 }

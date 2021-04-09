@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/boardwrite")
 public class BoardWrite extends HttpServlet {
@@ -22,20 +23,30 @@ public class BoardWrite extends HttpServlet {
 		
 		BoardDAO dao = new BoardDAO();
 		BoardDTO dto = new BoardDTO();
-		boolean memberresult = dao.getMember(writer);
 		
+		//writer가 member 존재 id이면 writer를 세션에 저장 글쓰기 진행
+		boolean memberresult = dao.getMember(writer);
+		//writer를 세션에 저장
+		HttpSession session = request.getSession();
+		//1번쨰 요청 - 세션 생성 | 2번~ - 세션 재사용
+		if(session.getAttribute("writer") == null) {
+			
+		}
 		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String result = "";
 		
 		if(memberresult) {
+			session.setAttribute("writer", writer);
+			
 			dto.setTitle(title);
 			dto.setContents(content);
 			dto.setWriter(writer);
 			dto.setPassword(Integer.parseInt(password));
 			dao.insertBoard(dto);
 			
+			session.setAttribute("board", dto);
 			result += "<h3>저장되었습니다.</h3>";
 			result += "<a href='boardlist'>보드로 이동</a>";
 		}

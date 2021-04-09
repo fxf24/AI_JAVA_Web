@@ -100,8 +100,9 @@ public class BoardDAO {
 					+ "where s >= ? and s <= ?";
 			
 			pt = conn.prepareStatement(sql);
-			pt.setInt(1, pagenum);
-			pt.setInt(2, pagenum + cntPerPage -1);
+			int startnum = pagenum*cntPerPage - cntPerPage +1;
+			pt.setInt(1, startnum);
+			pt.setInt(2, startnum + cntPerPage -1);
 			
 			rs = pt.executeQuery();
 			
