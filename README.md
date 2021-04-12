@@ -66,3 +66,29 @@
   * MemerDTO를 Session으로 [생성](./servlettest/src/session/SessionServlet3.java) 하고 [전달](./servlettest/src/session/SessionServlet4.java) 받는 방법
   * Session 값을 [삭제](./servlettest/src/session/SessionServlet5.java) 하는 방법
 
+## JSP
+
+* JSP의 [기초](./jsp/WebContent/first.jsp) 와 [변수](./jsp/WebContent/membervar.jsp)
+* Include를 이용한 JSP
+  * [share](./jsp/WebContent/include/share.jsp)
+  * [member](./jsp/WebContent/include/member.jsp)
+  * [board](./jsp/WebContent/include/board.jsp)
+  * [shop](./jsp/WebContent/include/shop.jsp)
+
+* JSP태그를 이용한 include
+  * [share](./jsp/WebContent/actioninclude/share.jsp)
+  * [member](./jsp/WebContent/actioninclude/member.jsp)
+  * [board](./jsp/WebContent/actioninclude/board.jsp)
+  * [shop](./jsp/WebContent/actioninclude/shop.jsp)
+* Jsp에서 [에러](./jsp/WebContent/error/a.jsp)를 띄우기 위해선 [errorpage](./jsp/WebContent/error/b.jsp)를 사용해야한다.
+* JSP로 session을 이용하는 방법
+  * [sessiontest](./jsp/WebContent/session/sessiontest.jsp) - main
+  * [후기](./jsp/WebContent/session/sessiontest2.jsp)
+  * [정보](./jsp/WebContent/session/sessiontest3.jsp)
+  * [로그아웃](./jsp/WebContent/session/sessiontest.jsp)
+* bean을 이용한 JSP
+  * [boardwrite](./jsp/WebContent/bean/boardwrite.html)
+  * [beantest1](./jsp/WebContent/bean/beantest1.jsp) , [beantest2](./jsp/WebContent/bean/beantest2.jsp)
+    * scope=request일때는 jsp:forward를 이용하여 beantest2로 넘겨줄 수 있다.
+    * scope=session일때는 beantest2도 데이터를 공유한다.
+* [Servlet](./jsp/src/board/BoardServlet.java)과 [JSP](./jsp/WebContent/board/boardstart.jsp)를 이용하여 Board보여주기

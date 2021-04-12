@@ -29,9 +29,14 @@ if(id.equals("jsp") && pw.equals("jsp")){
 else{
 	out.println("<a href='loginform.jsp'>로그인폼으로 이동</a>");
 
-	RequestDispatcher rd = request.getRequestDispatcher("loginform.jsp");
-	rd.forward(request, response);
+/* 	RequestDispatcher rd = request.getRequestDispatcher("loginform.jsp");
+	rd.forward(request, response); */
 }
+//response.addCookie(new Cookie("c1","jsp"));
+//response.sendRedirect("http://www.daum.net");
  %>
+ <jsp:forward page="loginform.jsp">
+ 	<jsp:param value="아이디 인증받지 못했습니다" name="message"/>
+ </jsp:forward>
 </body>
 </html>

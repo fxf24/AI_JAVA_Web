@@ -13,6 +13,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<% if(request.getParameter("message") != null){%>
+	<%=request.getParameter("message") %>
+<% }
+%>
 <h1>로그인 폼</h1>
 <form action='loginprocess.jsp' method='post'>
 아이디입력: <input type=text name=id><br>

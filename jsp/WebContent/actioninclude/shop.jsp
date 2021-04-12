@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isErrorPage="true"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-System.out.println(exception);
-%>
-<%="서버 임시적으로 문제가 생겼습니다. 잠시후 다시 접속하세요."
-%>
+<h1>쇼핑몰 작업하는 jsp입니다.</h1>
+<jsp:include page="share.jsp">
+	<jsp:param value="/html/images/iphone.png" name="img"/>
+</jsp:include>
 </body>
 </html>
