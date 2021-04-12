@@ -151,24 +151,12 @@
 
       <Context docBase="html" path="/html" reloadable="true" source="org.eclipse.jst.jee.server:html"/><Context docBase="css" path="/css" reloadable="true" source="org.eclipse.jst.jee.server:css"/><Context docBase="js" path="/js" reloadable="true" source="org.eclipse.jst.jee.server:js"/><Context docBase="jquery" path="/jquery" reloadable="true" source="org.eclipse.jst.jee.server:jquery"/><Context docBase="web_project" path="/web_project" reloadable="true" source="org.eclipse.jst.jee.server:web_project"/>
       <Context docBase="servlettest" path="/servlettest" reloadable="true" source="org.eclipse.jst.jee.server:servlettest">
-      	<Resource
-      	name ="jdbc/myoracle"
-      	MaxActive="5"
-      	auth="Container"
-      	maxIdle="5"
-      	maxWait="-1"
-      	type="javax.sql.DataSource"
-      	
-      	driverClassName="oracle.jdbc.driver.OracleDriver"
-      	password="jdbc"
-      	url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-      	username="jdbc"
-      	>
+      	<Resource MaxActive="5" auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="5" maxWait="-1" name="jdbc/myoracle" password="jdbc" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="jdbc">
       	</Resource>
       
-      </Context>>
+      </Context>&gt;
       
-      </Host>
+      <Context docBase="jsp" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:jsp"/></Host>
       
     </Engine>
   </Service>
