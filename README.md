@@ -69,12 +69,18 @@
 ## JSP
 
 * JSP의 [기초](./jsp/WebContent/first.jsp) 와 [변수](./jsp/WebContent/membervar.jsp)
+
+| html 태그            | html태그 그대로                                              |
+| -------------------- | ------------------------------------------------------------ |
+| Jsp태그<br /><jsp: ~ | <% 자바 코드 %><br /><%@ page, include%><br /><%! 멤버변수 or 멤버 메서드%><br /><%=출력,속성값표현%><br /><%-- 주석 -- %> |
+
+
+
 * Include를 이용한 JSP
   * [share](./jsp/WebContent/include/share.jsp)
   * [member](./jsp/WebContent/include/member.jsp)
   * [board](./jsp/WebContent/include/board.jsp)
   * [shop](./jsp/WebContent/include/shop.jsp)
-
 * JSP태그를 이용한 include
   * [share](./jsp/WebContent/actioninclude/share.jsp)
   * [member](./jsp/WebContent/actioninclude/member.jsp)
@@ -92,3 +98,17 @@
     * scope=request일때는 jsp:forward를 이용하여 beantest2로 넘겨줄 수 있다.
     * scope=session일때는 beantest2도 데이터를 공유한다.
 * [Servlet](./jsp/src/board/BoardServlet.java)과 [JSP](./jsp/WebContent/board/boardstart.jsp)를 이용하여 Board보여주기
+
+| jsp                                                          | el                             |
+| ------------------------------------------------------------ | ------------------------------ |
+| <%<br />request.setAttribute("이름", 객체)<br />(타입)request.getAttribute("")-> 이동, 포함되는 파일까지 | ${requestScope.이름}<br />     |
+| <%<br />session.setAttribute("이름", 객체)<br />(타입)session.getAttribute("")-> tomcat 서버 같은 웹프로젝트 모든파일 | ${sessionScope.이름}<br />     |
+| <%<br />application.setAttribute("이름", 객체)<br />(타입)application.getAttribute("")-> 파일 | ${applicationScope.이름}<br /> |
+
+* el을 이용하여 원래 파일들의 코드를 바꾸어 본다
+  * el [기본](./jsp/WebContent/el/eltest1.jsp)
+  * [share](./jsp/WebContent/el/share.jsp), [share2](./jsp/WebContent/el/share2.jsp)
+  * [el_loginform](./jsp/WebContent/el/el_loginform.jsp), [el_loginprocess](./jsp/WebContent/el/el_loginprocess.jsp)
+
+* jstl을 이용하여 코딩해보자
+  * [jstl1](./jsp/WebContent/jstl/jstl1.jsp), [jstl2](./jsp/WebContent/jstl/jstl2.jsp) [jstl3](./jsp/WebContent/jstl/jstl3.jsp)
